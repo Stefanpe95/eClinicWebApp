@@ -1,0 +1,52 @@
+<h3 class="text-center"><b>Appointment List</b> </h3>
+
+<h3 *ngIf="appointments.length === 0 ">
+    No Appointments Found!
+</h3>
+
+<p></p>
+<table  [hidden]="appointments.length === 0 " class="table table-hover table-lg border-info" >
+    <thead>
+        <tr class="table-primary align-middle" style="text-align: center;">
+            <th scope="col">Appointment ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Appointment Note</th>
+            <th scope="col">Doctor PID</th>
+            <th scope="col">Patient PID</th>
+            <th [hidden]="keyRole == 'patient'" scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let appointment of appointments | paginate: {itemsPerPage: pageSize, currentPage: page,totalItems:count}" class="table-primary" style="text-align: center;">
+            <td scope="row">{{appointment.appointmentID}}</td>
+            <td scope="row">{{appointment.date | date:'dd/MM/yyyy, HH:mm:ss'}}</td>
+            <td scope="row">{{appointment.appointment_note}}</td>
+            <td scope="row">{{appointment.doctor?.doctorPID}}</td>
+            <td scope="row">{{appointment.patient?.patientPID}}</td>
+            <td [hidden]="keyRole == 'patient'" scope="row">
+                <button (click)="updateAppointment(appointment.appointmentID)" class="btn btn-primary">Update</button>
+                <button (click)="deleteAppointment(appointment.appointmentID)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="col-md-12 pagination justify-content-center">
+    <div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
+    </div>
+    <div >
+      Items per Page:
+      <select [disabled]=true (change)="handlePageSizeChange($event)">
+        <option *ngFor="let size of pageSizes" ngValue="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+  </div>
+

@@ -1,0 +1,115 @@
+<div class="col-md-6 offset-md-3 row">
+  <p></p>
+    <h3 class="text-center"><b>SCHEDULE AN APPOINTMENT</b></h3>
+    
+    <form [formGroup]="AppointmentForm" (submit)="onSubmit()">
+    
+        <div class="form-group">
+            <input type="text" class="form-control" id="appointment_note" 
+            required [(ngModel)]="appointmentadd.appointment_note" placeholder="Note" name = "appointment_note"  formControlName="AppointmentNote">
+            <p></p>
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+            <input type="text" class="form-control" id="date"  [ngxMatDatetimePicker]="picker" [ngxMatDatetimePickerFilter]="myFilter" placeholder="Choose a date" [min]="minDate" [max]="maxDate"
+            required [(ngModel)]="appointmentadd.date" name = "date"  formControlName="Date" readonly (click)="picker.open()">           
+          <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [stepHour]="stepHour"
+          [stepMinute]="stepMinute" [touchUi]="touchUi" [enableMeridian]="enableMeridian">
+          </ngx-mat-datetime-picker>
+          <p></p>
+          <div class="alert alert-danger" *ngIf="appointmentadd.date?.getDay() == 0 || appointmentadd.date?.getDay() == 6">
+            {{error}}
+        </div>
+        </div>
+        <p></p>
+
+
+        <!-- <input [matDatepicker]="basicDatepicker" readonly>
+        <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #basicDatepicker></mat-datepicker> -->
+
+
+
+
+        <!-- <div class="form-group">
+            <label for="datetimepicker">Date Time Picker</label>
+            <angular2-date-picker class="form-control" id="datetimepicker" [(ngModel)]="date" style="padding: 0.2 rem 0.1 rem;">  </angular2-date-picker>
+            <input id="my-input" class="form-control" type="text" name="">
+        </div> -->
+
+
+        <!-- <div [formGroup]="formGroup">
+            <mat-form-field>
+              <input matInput [ngxMatDatetimePicker]="picker" 
+              placeholder="Choose a date" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+            </mat-form-field>
+          </div> -->
+  
+        <!-- <div>
+            <mat-form-field  class="example-full-width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input  required [(ngModel)] = "appointmentadd.date" matInput [matDatepicker]="picker">
+            <mat-datepicker (closed)="selectOptionDate($event)"  #picker></mat-datepicker>
+          </mat-form-field>
+          <button  mat-raised-button (click)="picker.open()">Open</button>
+        </div> -->
+
+        
+                    <!-- <div>
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="appointmentadd.date" (dateChange)="selectOptionDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker [(ngModel)]="appointmentadd.date" ngDefaultControl></mat-datepicker>
+              </mat-form-field>
+        </div> -->
+
+
+
+
+        <p></p>
+    
+        <!-- <div class="form-group">
+            <label for="name">Role</label>
+            <select class="form-control pt-1" name="roleID" [(ngModel)]="user.role?.roleID">
+              <option value="null">Select Role</option>
+                <option *ngFor="let role of roles" value="{{role?.roleID}}">{{role.roleName}}</option>
+              </select>
+        </div> -->
+    
+    
+        <div class="form-group">
+            <label>Doctor PID</label>
+            <p></p>
+            <!-- TREBA NAPRAVITI LISTU OBJEKATA KOJE UZIMAMO I OVDE UBACIMO -->
+            <select [formControl]="DoctorValidation" formControlName="Doctor" (change)="selectOptionDoctor($event)" [(ngModel)]="doctor">
+               <option *ngFor="let doctor of doctors" [value]="doctor.doctorID" >{{doctor.doctorPID}}</option>
+            </select>
+    
+            <!-- <input type="text" class="form-control" id="doctor" [(ngModel)]="doctor" name = "doctor">  -->
+        </div>
+          <p></p>
+        <div class="form-group" >
+            <label>Patient PID</label>
+            <p></p>
+            <!-- TREBA NAPRAVITI LISTU OBJEKATA KOJE UZIMAMO I OVDE UBACIMO -->
+            <select [formControl]="PatientValidation" formControlName="Patient" (change)="selectOptionPatient($event)" [(ngModel)]="patient">
+                <option *ngFor="let patient of patients" [value]="patient.patientID" >{{patient.patientPID}}</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="patientID" [(ngModel)]="patient"  name = "patientID"> -->
+    
+    
+        </div>
+        <p></p>
+        <div class="d-flex justify-content">
+            <p [hidden]="AppointmentForm.valid" style="text-emphasis-color: red;">Please complete all needed data.</p>
+            <p></p>
+            <button class="btn btn-outline-success col text-center btn-lg" type="submit" [hidden]="!AppointmentForm.valid">SCHEDULE YOUR APPOINTMENT</button>
+        </div>
+        <p></p>
+        
+    </form>
+    
+    
+    
+    </div>

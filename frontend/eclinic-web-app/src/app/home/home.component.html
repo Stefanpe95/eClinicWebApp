@@ -1,0 +1,28 @@
+<div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-column">
+        <button class="btn  btn-outline-primary" style="width: 200px;" (click)="dataInfoFill()">DATA INFO(UPDATE)</button>
+        <button class="btn btn-outline-info" style="width: 200px;" (click)="listofAppointmentsFill()">LIST OF APPOINTMENTS</button>
+        <button class="btn btn-outline-warning" style="width: 200px;" (click)="scheduleAppointmentFill()">SCHEDULE APPOINTMENT</button>
+    </div>
+    <div class="container" [hidden]="clickedDataInfo == false">
+        <app-update-user></app-update-user>
+    </div>
+    <div class="container" [hidden]="clickedListOfAppointments == false">
+        <app-appointment-list></app-appointment-list>
+    </div>
+    <div class="container" [hidden]="clickedScheduleAppointment == false">
+        <app-add-appointment></app-add-appointment>
+    </div>
+
+    <div class="d-flex flex-column float-end">
+        <p style="font-weight: 900;">WELCOME, {{flagRole}}</p>
+        <p style="font-weight: bold;">{{user.name}} {{user.surname}}</p>
+        <button class="btn btn-outline-danger" (click)="logout(user.name)">LOGOUT</button>
+        </div>
+
+</div>
+
+
+
+
+

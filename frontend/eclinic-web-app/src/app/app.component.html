@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm navbar-dark " style="background-color: skyblue;">
+        <ul  class="navbar-nav mr-auto">
+
+        <li [hidden]="keyUser != undefined || keyUser==undefined"  class="nav-item">
+            <a routerLink="login" routerLinkActive="active" class="nav-link">Login</a>
+        </li>
+            <li [hidden]="keyUser == undefined" class="nav-item">
+                <a routerLink="home/:currentUser" routerLinkActive="active" class="nav-link">Home</a>
+            </li>
+            <li [hidden]="keyUser == undefined" class="nav-item">
+                <a routerLink="appointments-list" routerLinkActive="active" class="nav-link">Appointment List</a>
+            </li>
+            <li [hidden]="keyUser == undefined" class="nav-item">
+                <a routerLink="add-appointment" routerLinkActive="active" class="nav-link">Add Appointment</a>
+            </li>
+            <li [hidden]="keyUser == undefined" class="nav-item">
+                <a routerLink="doctors-list" routerLinkActive="active" class="nav-link">Doctor List</a>
+            </li>
+            <li [hidden]="keyUser == undefined || keyRole =='patient'" class="nav-item">
+                <a routerLink="patients-list" routerLinkActive="active" class="nav-link">Patient List</a>
+            </li>
+
+        </ul>
+</nav>
+
+<div class="container">
+    <h1 class="text-center" style="background-color: skyblue;"><b> {{title}} </b></h1>
+    <router-outlet></router-outlet>
+</div>
+
+<footer class="footer fixed-bottom" style="background-color: skyblue;" position="absolute"  text-align="center">
+    <div class="container">
+        <span>@NapredneSoftverskeTehnologije 2021</span>
+    </div>
+</footer>

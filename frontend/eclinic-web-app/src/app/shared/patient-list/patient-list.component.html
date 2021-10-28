@@ -1,0 +1,29 @@
+<h2>Patients List </h2>
+
+<p></p>
+<table class="table table-hover table-lg border-info" >
+    <thead>
+        <tr class="table-primary align-middle" style="text-align: center;">
+            <th scope="col">Patient ID</th>
+            <th scope="col">Patient PID</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Bloodtype</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of patients" class="table-primary" style="text-align: center;">
+            <td scope="row">{{patient.patientID}}</td>
+            <td scope="row">{{patient.patientPID}}</td>
+            <td scope="row">{{patient.age}}</td>
+            <td scope="row">{{patient.gender}}</td>
+            <td scope="row">{{patient.bloodtype}}</td>
+
+            <!-- <td scope="row">
+                <button (click)="updateUser(user.userID)" class="btn btn-primary">Update</button>
+                <button (click)="deleteUser(user.userID)" class="btn btn-danger">Delete</button>
+                <button (click)="userDetails(user.userID)" class="btn btn-warning">View</button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>

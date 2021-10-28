@@ -1,0 +1,111 @@
+<div class="col-md-6 offset-md-3 row">
+<h3>Create User</h3>
+
+<!-- <div>
+    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button (click)="picker.open()">Open</button>
+</div> -->
+
+
+<form [formGroup]="UserForm" (submit)="onSubmit()">
+
+    <div class="form-group">
+        <input type="text" class="form-control" id="username" 
+        required [(ngModel)] = "useradd.username" placeholder="Username" name = "username"  formControlName="Username">
+
+    </div>
+    <p></p>
+    <div class="form-group">
+        <input type="text" class="form-control" id="password" 
+        required [(ngModel)] = "useradd.password" placeholder="Password" name = "password"  formControlName="Password">
+
+    </div>
+    <p></p>
+    <div class="form-group">
+        <input type="text" class="form-control" id="name" 
+        required [(ngModel)] = "useradd.name" placeholder="Name"  name = "name"  formControlName="Name">
+
+    </div>
+    <p></p>
+    <div class="form-group">
+        <input type="text" class="form-control" id="surname" 
+        required [(ngModel)] = "useradd.surname" placeholder="Surname" name = "surname"  formControlName="Surname">
+
+    </div>
+    <p></p>
+    <div class="form-group">
+        <input type="text" class="form-control" id="pid" 
+        required [(ngModel)] = "useradd.pid"  placeholder="PID" name = "pid"  formControlName="PID">
+
+    </div>
+    <p></p>
+
+
+    <div class="form-group">
+        <label>RoleID</label>
+        <p></p>
+
+        <!-- TREBA NAPRAVITI LISTU OBJEKATA KOJE UZIMAMO I OVDE UBACIMO -->
+
+        <select [formControl]="RoleValidation" formControlName="Role"  (change)="selectOptionRole($event)" required>
+            <option  *ngFor="let role of roles" [value]="role.roleID" >{{role.roleID}} > {{role.roleName}}</option>
+        </select>
+       
+        <!-- <input type="text" class="form-control" [(ngModel)]="role" name = "roleID"> -->
+        <p></p>
+
+
+    </div>
+
+    <!-- <div class="form-group">
+        <label for="name">Role</label>
+        <select class="form-control pt-1" name="roleID" [(ngModel)]="user.role?.roleID">
+          <option value="null">Select Role</option>
+            <option *ngFor="let role of roles" value="{{role?.roleID}}">{{role.roleName}}</option>
+          </select>
+    </div> -->
+
+
+    <div class="form-group"  *ngIf="role != 2">
+        <label>DoctorID</label>
+        <p></p>
+        <!-- TREBA NAPRAVITI LISTU OBJEKATA KOJE UZIMAMO I OVDE UBACIMO -->
+        <select [formControl]="DoctorValidation"  (change)="selectOptionDoctor($event)" [(ngModel)]="doctor">
+           <option *ngFor="let doctor of doctors" [value]="doctor.doctorID" >{{doctor.doctorID}} > {{doctor.speciality}}</option>
+        </select>
+
+        <!-- <input type="text" class="form-control" id="doctor" [(ngModel)]="doctor" name = "doctor">  -->
+        
+    </div>
+
+    <div class="form-group"  *ngIf="role != 1">
+        <label>PatientID</label>
+        <p></p>
+        <!-- TREBA NAPRAVITI LISTU OBJEKATA KOJE UZIMAMO I OVDE UBACIMO -->
+        <select [formControl]="PatientValidation"  (change)="selectOptionPatient($event)" [(ngModel)]="patient">
+            <option *ngFor="let patient of patients" [value]="patient.patientID" >{{patient.patientID}} > {{patient.patientPID}}</option>
+        </select>
+        <!-- <input type="text" class="form-control" id="patientID" [(ngModel)]="patient"  name = "patientID"> -->
+
+
+    </div>
+    <p></p>
+    <div class="col-md-6 ">
+        <div *ngIf="error!==''">
+            {{error}}
+        </div>
+        <p [hidden]="UserForm.valid" style="text-decoration-color: red;">Please complete all needed data.</p>
+        <p></p>
+        <button class="btn btn-success col text-center" type="submit" [hidden]="!UserForm.valid">Submit</button>
+    </div>
+    <p></p>
+    
+</form>
+
+
+
+</div>

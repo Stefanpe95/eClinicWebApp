@@ -1,0 +1,92 @@
+<div class="col-md-6 offset-md-3 row">
+    <h3 class="text-center"><b>DATA INFO</b></h3>
+    <form >
+    
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" id="username" 
+            [(ngModel)]="useradd.username" name = "username">
+            <p></p>
+        </div>
+    
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" class="form-control" id="password" 
+            [(ngModel)]="useradd.password" name = "password">
+            <p></p>
+        </div>
+    
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" 
+            [(ngModel)]="useradd.name" name = "name">
+            <p></p>
+        </div>
+    
+        <div class="form-group">
+            <label>Surname</label>
+            <input type="text" class="form-control" id="surname" 
+            [(ngModel)]="useradd.surname" name = "surname">
+            <p></p>
+        </div>
+    
+        <div class="form-group">
+            <label>PID</label>
+            <input type="text" class="form-control" id="pid" 
+            [(ngModel)]="useradd.pid" name = "pid">
+            <p></p>
+        </div>
+    <p></p>
+        <div class="d-flex justify-content flex-column form-group">
+            <p>Role</p>
+            <select  [formControl]="RoleValidation" (change)="selectOptionRole($event)" [(ngModel)]="role"  required>
+                <option  *ngFor="let role of roles" [value]="role.roleID" >{{role.roleName}}</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="roleID" 
+            [(ngModel)]="role" name = "roleID"> -->
+    
+        </div>
+
+
+    
+         <!-- <div class="form-group">
+            <label for="name">Role</label>
+            <select class="form-control pt-1" name="roleID" [(ngModel)]="user.role?.roleID">
+              <option value="null">Select Role</option>
+                <option *ngFor="let role of roles" value="{{role?.roleID}}">{{role.roleName}}</option>
+              </select>
+        </div> -->
+    
+   <p></p>
+
+        <div class="d-flex justify-content flex-column form-group" *ngIf="role != 2">
+            <p>Doctor</p>
+            <select [formControl]="DoctorValidation"  (change)="selectOptionDoctor($event)" [(ngModel)]="doctor" >
+                <option *ngFor="let doctor of doctors" [value]="doctor.doctorID" >{{doctor.speciality}}</option>
+             </select>
+            <!-- <input type="text" class="form-control" id="doctorID" 
+            [(ngModel)]="doctor" name = "doctorID"> -->
+    
+        </div>
+    
+
+        <div class="form-group" *ngIf="role != 1" >
+            <p>Patient</p>
+            <select  [formControl]="PatientValidation"  (change)="selectOptionPatient($event)" [(ngModel)]="patient">
+                <option *ngFor="let patient of patients" [value]="patient.patientID" >{{patient.patientPID}}</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="patientID" 
+            [(ngModel)]="patient"  name = "patientID"> -->
+    
+        </div>
+
+        <p></p>
+        <div class="d-flex justify-content">
+            <button class="btn btn-outline-success col text-center btn-lg" type="submit" (click)="onSubmit()">UPDATE</button>
+        </div>
+        
+
+
+        
+    </form>
+    </div>

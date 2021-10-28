@@ -1,0 +1,27 @@
+<h2>Doctor List </h2>
+
+<p></p>
+<table class="table table-hover table-lg border-info" >
+    <thead>
+        <tr class="table-primary align-middle" style="text-align: center;">
+            <th scope="col">Doctor ID</th>
+            <th scope="col">Doctor PID</th>
+            <th scope="col">Speciality</th>
+            <th scope="col">Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let doctor of doctors" class="table-primary" style="text-align: center;">
+            <td scope="row">{{doctor.doctorID}}</td>
+            <td scope="row">{{doctor.doctorPID}}</td>
+            <td scope="row">{{doctor.speciality}}</td>
+            <td scope="row">{{doctor.department?.name}}</td>
+
+            <!-- <td scope="row">
+                <button (click)="updateUser(user.userID)" class="btn btn-primary">Update</button>
+                <button (click)="deleteUser(user.userID)" class="btn btn-danger">Delete</button>
+                <button (click)="userDetails(user.userID)" class="btn btn-warning">View</button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>

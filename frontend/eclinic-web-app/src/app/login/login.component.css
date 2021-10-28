@@ -1,0 +1,117 @@
+.signInContainer {
+    background-color: rgba(252, 252, 252, 0.4);
+    background-image:url('/assets/clinic.jpg');
+    background-position: center;
+    background-size: 200vh;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .column {
+    flex-grow: 1;
+    background-color:skyblue;
+    min-height: 400px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+  }
+  
+  .header {
+    padding: 20px 0px;
+  }
+
+  /* .signInContainer .column form {
+    display: flex;
+    flex-direction: column;
+  } */
+  
+  .control {
+    padding-top: 25px;
+  }
+  
+   input[type="email"],
+   input[type="password"] {
+    font-size: 20px;
+    margin: 10px auto;
+    border: midnightblue;
+    border-bottom: 1px solid #dedede;
+    padding-left: 10%;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  .email-label{
+    margin-right: 10%;
+  }
+  
+   input[type="submit"] {
+    background: #4b6da3;
+    color: rgb(161, 40, 40);
+    height: 36px;
+    width: auto;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    display: flex;
+  }
+  
+  button[name="submitButton"] {
+    width: 34vh;
+    height: 5vh;
+  }
+  
+  .signInMessage {
+    font-size: 20px;
+    font-weight: 400;
+    color: #212529;
+    padding-top: 18px;
+  }
+  
+  .signInContainer .column .header img {
+    width: 80%;
+  }
+  
+  .signInContainer .column {
+    flex-grow: 0;
+    width: 400px;
+    padding: 40px 35px;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  
+  .signInContainer .column .header {
+    padding: 20px 0px;
+  }
+  
+  .signInContainer .column .header img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .signInContainer .column .header h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 16px;
+  }
+  
+  .signInContainer .column .header span {
+    font-size: 14px;
+  }
+  
+  .errorMessage {
+    color: #f00;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+  }
+  
