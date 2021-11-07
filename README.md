@@ -1,6 +1,6 @@
 # eClinicWebApp Java-Spring(Backend)+AngularJS(Frontend)
 
-EClinic Web Application for Examination Appointment
+EClinic Web Application Project for MSc studies on Faculty of Organizational Sciences
 
 ![architecture](https://user-images.githubusercontent.com/60583122/140650860-4adbc030-7e5b-440e-b094-927c1c59f53a.png)
 
