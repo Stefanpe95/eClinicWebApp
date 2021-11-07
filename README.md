@@ -4,6 +4,11 @@ EClinic Web Application Project for MSc studies on Faculty of Organizational Sci
 
 ![architecture](https://user-images.githubusercontent.com/60583122/140650860-4adbc030-7e5b-440e-b094-927c1c59f53a.png)
 
+Backend Model in MySQL
+
+![model_eClinic](https://user-images.githubusercontent.com/60583122/140651248-5fe0860f-640e-4ac7-8f4b-4d6f2d7c5c42.jpg)
+
+
 
 A web application has been created that allows the user (doctor or patient) to schedule an appointment.
 When using a web application, the user (doctor or patient) first logs in to the software system, by entering his own username and password. The software system then allows the user to view their own data, a list of their own examinations, as well as a list of doctors or patients who belong to the system.
